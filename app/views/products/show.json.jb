@@ -1,0 +1,9 @@
+{
+  product_id: @product.id,
+  name: @product.name,
+  price: @product.price,
+  description: @product.description,
+  is_discounted?: @product.is_discounted?,
+  supplier: @product.supplier,
+  images: @product.images,
+}

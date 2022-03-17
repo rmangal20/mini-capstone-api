@@ -1,0 +1,5 @@
+{
+  image_id: @image.id,
+  product: @image.product,
+  url: @image.url,
+}
