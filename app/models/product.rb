@@ -1,8 +1,5 @@
 class Product < ApplicationRecord
-  def supplier
-    supplier = Supplier.find_by(id: supplier_id)
-    return supplier.show
-  end
+  belongs_to :supplier
 
   def images
     images = Image.where(product_id: id)
