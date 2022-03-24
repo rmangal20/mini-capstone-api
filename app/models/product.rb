@@ -1,15 +1,15 @@
 class Product < ApplicationRecord
   belongs_to :supplier
+  has_many :orders
+  has_many :images
+  has_many :category_products
+  has_many :categories, through: :category_products
 
-  def images
-    images = Image.where(product_id: id)
-    list = []
-    for image in images
-      hash = { image_id: image.id, image_url: image.url }
-      list << hash
-    end
-    return list
-  end
+  # def categories
+  #   category_products.map do |category_product|
+  #     category_product.category
+  #   end
+  # end
 
   def is_discounted?
     if price < 10

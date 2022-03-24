@@ -1,7 +1,7 @@
 class SuppliersController < ApplicationController
   def index
-    suppliers = Supplier.all
-    render json: suppliers.as_json
+    @suppliers = Supplier.all
+    render template: "suppliers/index"
   end
 
   def show

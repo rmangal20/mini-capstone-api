@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
-    products = Product.all
-    render json: products.as_json(methods: [:is_discounted?, :tax, :total])
+    @products = Product.all
+    render template: "products/index"
   end
 
   def show

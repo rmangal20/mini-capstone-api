@@ -1,7 +1,39 @@
-
-PATCH http://localhost:3000/products/1
+### Users create (signup)
+POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "green_apples"
+  "name": "user",
+  "email": "user@example.com",
+  "password": "password",
+  "password_confirmation": "password",
+  "admin": false
 }
+
+
+### Sessions create (login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
+###
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDgxNDk5ODF9.10D6IHo_5EfQsUDgBd0nGWgvPukQZ32OmxiwN5oJL1o
+
+### Order create
+POST http://localhost:3000/orders.json
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+ "product_id": 2,
+  "quantity": 2
+}
+
+
+### Orders show
+GET http://localhost:3000/orders.json
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
